@@ -1,13 +1,12 @@
-=====================================
 Backstepping Tracking Control Using Gaussian Processes with  Event-Triggered Online Learning
 =====================================
 
-This code accompanies the paper [1]_ and implements the code for simulating a one-link planar manipulator with motor dynamics under the control laws proposed in [1]_ and [2]_.
+This code accompanies the paper [1] and implements the code for simulating a one-link planar manipulator with motor dynamics under the control laws proposed in [1] and [2].
 
 
-.. [1] J. Jiao, A. Capone, S. Hirche, Backstepping Tracking Control Using Gaussian Processes with  Event-Triggered Online Learning," Under Review for IEEE Control Systems Letters.
+[1] J. Jiao, A. Capone, S. Hirche, Backstepping Tracking Control Using Gaussian Processes with  Event-Triggered Online Learning," Under Review for IEEE Control Systems Letters.
 
-.. [2] A. Capone, S. Hirche, "Backstepping for Partially Unknown Nonlinear Systems Using Gaussian Processes," in IEEE Control Systems Letters, vol. 3, no. 2, pp. 416-421, April 2019, doi: 10.1109/LCSYS.2018.2890467.
+[2] A. Capone, S. Hirche, "Backstepping for Partially Unknown Nonlinear Systems Using Gaussian Processes," in IEEE Control Systems Letters, vol. 3, no. 2, pp. 416-421, April 2019, doi: 10.1109/LCSYS.2018.2890467.
 
 Getting started
 ---------------
