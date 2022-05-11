@@ -1,6 +1,6 @@
-==========================================================================================================
+=====================================
 Backstepping Tracking Control Using Gaussian Processes with  Event-Triggered Online Learning
-==========================================================================================================
+=====================================
 
 This code accompanies the paper [1]_ and implements the code for simulating a one-link planar manipulator with motor dynamics under the control laws proposed in [1]_ and [2]_.
 
