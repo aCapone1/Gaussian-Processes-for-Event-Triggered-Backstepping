@@ -2,8 +2,9 @@ clear
 close all
 clc
 
+
 % Add folders to path
-addpath('gpml','visualization')
+addpath('gpml','visualization','results')
 
 % Initialize GPML toolbox
 startup
@@ -17,6 +18,9 @@ n_points_untrig = 400;
 n_points_trig = 1;
 
 for rep = 1:nreps
+    
+    % Seeding random variables for reproducibility
+    rng(rep)
     
     %Starting and ending time of simulation
     TStart = 0;
@@ -112,10 +116,10 @@ for rep = 1:nreps
     end
 
     save("results/results_evnttrig" + int2str(rep))
-    disp('Plotting results...')
-    plot_all_results(time,state,time_untrig,state_untrig,input,est_err, triggertime)
-    disp('Press any key to continue')
-    pause;
+%     disp('Plotting results...')
+%     plot_all_results(time,state,time_untrig,state_untrig,input,est_err, triggertime)
+%     disp('Press any key to continue')
+%     pause;
     close all
 end
     
