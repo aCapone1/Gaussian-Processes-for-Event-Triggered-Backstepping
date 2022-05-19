@@ -116,10 +116,10 @@ for rep = 1:nreps
     end
 
     save("results/results_evnttrig" + int2str(rep))
-%     disp('Plotting results...')
-%     plot_all_results(time,state,time_untrig,state_untrig,input,est_err, triggertime)
-%     disp('Press any key to continue')
-%     pause;
+    disp('Plotting results...')
+    plot_all_results(time,state,time_untrig,state_untrig,input,est_err, triggertime)
+    disp('Press any key to continue')
+    pause;
     close all
 end
     
