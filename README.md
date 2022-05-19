@@ -11,6 +11,6 @@ This code accompanies the paper [1] and implements the code for simulating a one
 Getting started
 ---------------
 
-This library is tested based on Matlab 2022a together with the GPML toolbox, which can be downloaded from http://gaussianprocess.org/gpml/code/matlab/doc/index.html and needs to be included in the folder.
+This library is tested based on Matlab 2022a together with the GPML toolbox, which can be downloaded from http://gaussianprocess.org/gpml/code/matlab/doc/index.html. The GPML toolbox foldr needs to be named 'gpml' and be included in the same folder as this README.
 
 To run the simulation just run the script run_olrt_experiment on Matlab. System parameters and Gaussian process hyperparameters can be changed in the function get_parameters.
