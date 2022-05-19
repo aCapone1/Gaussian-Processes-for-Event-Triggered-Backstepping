@@ -90,7 +90,7 @@ for rep = 1:nreps
         end
         x_data_new = x(end,1:3);
 
-        %Compute u
+        %Compute u and covariances for evaluating and plotting
         [u, cov1, cov2, cov3] = comp_uandvar(t,x,Xd1,Yd1,Xd2,Yd2,Xd3,Yd3);
 
         [Xd1, Xd2, Xd3, Yd1, Yd2, Yd3, postF1,postF2,postF3,gp_update_flag]...

@@ -6,7 +6,7 @@ function [l2err_triggered, l2err_untriggered, Ndata_triggered] =  compute_l2err(
     
     for rep =1:nreps
         
-        load("results_evnttrig" + int2str(rep))
+        load("results/results_evnttrig" + int2str(rep))
         try
             time_untrig = t_untrig;
             state_untrig = x_untrig;
