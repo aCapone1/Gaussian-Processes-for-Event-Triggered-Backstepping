@@ -17,7 +17,7 @@ nreps = 100;
 n_points_untrig = 400;
 n_points_trig = 1;
 
-for rep = 15:nreps
+for rep = 1:nreps
     
     % Seeding random variables for reproducibility
     rng(rep)
