@@ -17,7 +17,7 @@ nreps = 100;
 n_points_untrig = 400;
 n_points_trig = 1;
 
-for rep = 1:nreps
+for rep = 15:nreps
     
     % Seeding random variables for reproducibility
     rng(rep)
@@ -116,6 +116,21 @@ for rep = 1:nreps
     end
 
     save("results/results_evnttrig" + int2str(rep))
+    
+    % Compute quantiles for number of collected data and L2 errors
+    [l2err_trig, l2err_untrig, Ndata_trig] = compute_l2err(nreps);
+
+    % % Normalize L2 errors
+    % norm_factor = max(max(l2err_trig, l2err_untrig));
+    % l2err_trig = 1/norm_factor*l2err_trig;
+    % l2err_untrig = 1/norm_factor*l2err_untrig;
+    disp('Lower decile/median/upper decile of number of collected data:')
+    disp(quantile(Ndata_trig,[0.1,0.5,0.9]))
+    disp('Lower decile/median/upper decile of L2 error for our approach:')
+    disp(quantile(l2err_trig,[0.1,0.5,0.9]))
+    disp('Lower decile/median/upper decile of L2 error for offline learning-based approach:')
+    disp(quantile(l2err_untrig,[0.1,0.5,0.9]))
+    
     disp('Plotting results...')
     plot_all_results(time,state,time_untrig,state_untrig,input,est_err, triggertime)
     disp('Press any key to continue')
@@ -123,20 +138,7 @@ for rep = 1:nreps
     close all
 end
     
-%% Compute mean and variance of normalized L2 error
-[l2err_trig, l2err_untrig, Ndata_trig] = compute_l2err(nreps);
 
-% Normalize L2 errors
-norm_factor = max(max(l2err_trig, l2err_untrig));
-l2err_trig = 1/norm_factor*l2err_trig;
-l2err_untrig = 1/norm_factor*l2err_untrig;
-
-% compute mean L2 errors
-avg_L2trig = mean(l2err_trig);
-avg_L2untrig = mean(l2err_untrig);
-
-plot_eventtrig_res(time,state,input, est_err,'triggered',triggertime)
-plot_eventtrig_res(time_untrig,state_untrig,u_untrig, est_err,'untriggered',[])
 
 %% Triggering function
 function [trigger_val, isterminal, direction] = trigger(t, x, Xd1, Xd2, Xd3, ...
@@ -175,13 +177,13 @@ function [trigger_val, isterminal, direction] = trigger(t, x, Xd1, Xd2, Xd3, ...
     
     %Desired signals and derivatives
     x1d = sin(2*pi*t);
-    x1ddot = (2*pi)*cos(2*pi*t);
+    %x1ddot = (2*pi)*cos(2*pi*t);
     %x1dDot = -(2*pi)^2*sin(2*pi*t);
     %x1dDdot = -(2*pi)^3*cos(2*pi*t);
     x2d = z11;
-    x2ddot = omega_f*z12;
+    %x2ddot = omega_f*z12;
     x3d = z21;
-    x3ddot = omega_f*z22;
+    %x3ddot = omega_f*z22;
     
     beta = 2; %2
     err = sqrt((x1-x1d)^2 + (x2-x2d)^2 + (x3-x3d)^2);
