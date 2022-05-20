@@ -118,7 +118,7 @@ for rep = 1:nreps
     save("results/results_evnttrig" + int2str(rep))
     
     % Compute quantiles for number of collected data and L2 errors
-    [l2err_trig, l2err_untrig, Ndata_trig] = compute_l2err(nreps);
+    [l2err_trig, l2err_untrig, Ndata_trig] = compute_l2err(rep);
 
     % % Normalize L2 errors
     % norm_factor = max(max(l2err_trig, l2err_untrig));
